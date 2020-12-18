@@ -23,18 +23,7 @@ jobs:
       - run:
           name: Execute CxSAST Scan using CxFlow
           command: |
-            #~/cxcli/runCxConsole.sh Scan \
-            #  -CxServer $CX_SERVER \
-            #  -CxUser $CX_USER \
-            #  -CxPassword $CX_PASSWORD \
-            #  -ProjectName $CX_TEAM\/$CX_PROJECT \
-            #  -LocationType folder \
-            #  -LocationPath ~/project \
-            #  -ReportXML ~//cxcli//$CX_PROJECT//$CX_PROJECT-results.xml \
-            #  -ReportPDF ~//cxcli//$CX_PROJECT//$CX_PROJECT-results.pdf \
-            #  -Comment "git $CIRCLE_BRANCH@$CIRCLE_SHA1" \
-            #  -verbose
-            java -jar ~/cxflow.jar --spring.config.location=~/project/application.yml --scan --cx-team="Cx NA Team\Miguel Gonzalez" --cx-project="Fun_New_Project" --app=10081 --cxflow.bugTracker="NONE"
+                       java -jar ~/cxflow.jar --spring.config.location=~/project/application.yml --scan --cx-team="\Cx NA Team\Miguel Gonzalez" --cx-project="Fun_New_Project" --app=10081 --cxflow.bugTracker="NONE"
 
             #java -jar /app/cx-flow.jar --spring.config.location=./application.yml \
             #  --scan \
