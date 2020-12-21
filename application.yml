@@ -7,7 +7,7 @@ cxgo:
   base-url: https://api.checkmarx.net
   portal-url: https://cloud.checkmarx.net
   # CxGo Business unit that will contain the project/application/scan
-  team: \Cx NA Team\Miguel Gonzalez
+  team: \Cx NA Team\MiguelGonzalez
   url: ${cxgo.base-url}
   multi-tenant: false
   configuration: Default Configuration
