@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Execute CxSAST Scan using CxFlow
           command: |
-                    java -jar ~/cxflow.jar --spring.config.location=~/project/application.yml --scan --cx-team="\Cx NA Team" --cx-project="Fun_New_Project" --app="MiguelGonzalez" --cxflow.bugTracker="NONE"
+                    java -jar ~/cxflow.jar --spring.config.location=~/project/application.yml --scan --f --cx-team="\Cx NA Team" --cx-project="Fun_New_Project" --app="MiguelGonzalez" --cxflow.bugTracker="NONE"
 
             #java -jar /app/cx-flow.jar --spring.config.location=./application.yml \
             #  --scan \
