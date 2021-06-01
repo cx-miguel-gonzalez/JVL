@@ -27,9 +27,9 @@ jobs:
             
             Echo "java -jar ~/cxflow.jar --spring.config.location=./application.yml \
               --scan \
-              --cx-team="$CX_TEAM" \
-              --base-url="$CX_SERVER" \
-              --cx-project="$CX_PROJECT-$CIRCLE_BRANCH" \
+              --cx-team="${CX_TEAM}" \
+              --base-url="${CX_SERVER}" \
+              --cx-project="${CX_PROJECT}-$CIRCLE_BRANCH" \
               --cxflow.bugTracker="none" \
               --f=./src/main"
 
