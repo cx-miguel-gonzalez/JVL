@@ -28,6 +28,7 @@ jobs:
               --cx-team="${CX_TEAM}" \
               --base-url="${CX_SERVER}" \
               --cx-project="${CX_PROJECT}-$CIRCLE_BRANCH" \
+              --app="$CIRCLE_BRANCH" \
               --cxflow.bugTracker="none" \
               --f=./src/main
 
@@ -36,6 +37,7 @@ jobs:
               --cx-team="$CX_TEAM" \
               --base-url="$CX_SERVER" \
               --cx-project="$CX_PROJECT-$CIRCLE_BRANCH" \
+              --app="$CIRCLE_BRANCH" \
               --cxflow.bugTracker="none" \
               --f=./src/main
       
