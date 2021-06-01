@@ -22,10 +22,7 @@ jobs:
 
       - run:
           name: Execute CxSAST Scan using CxFlow
-          command: |
-            #        java -jar ~/cxflow.jar --spring.config.location=./application.yml --scan --f=./src/main --cx-team="\Cx NA Team\MiguelGonzalez" --cx-project="Fun_New_Project" --app=10081 --cxflow.bugTracker="NONE"
-            
-            Echo java -jar ~/cxflow.jar --spring.config.location=./application.yml \
+          command: | echo java -jar ~/cxflow.jar --spring.config.location=./application.yml \
               --scan \
               --cx-team="${CX_TEAM}" \
               --base-url="${CX_SERVER}" \
@@ -40,7 +37,8 @@ jobs:
               --cx-project="$CX_PROJECT-$CIRCLE_BRANCH" \
               --cxflow.bugTracker="none" \
               --f=./src/main
-
+      
+      #        java -jar ~/cxflow.jar --spring.config.location=./application.yml --scan --f=./src/main --cx-team="\Cx NA Team\MiguelGonzalez" --cx-project="Fun_New_Project" --app=10081 --cxflow.bugTracker="NONE"
 
       #- run:
       #    name: Moving Artifacts
