@@ -22,7 +22,8 @@ jobs:
 
       - run:
           name: Execute CxSAST Scan using CxFlow
-          command: | echo java -jar ~/cxflow.jar --spring.config.location=./application.yml \
+          command: | 
+            echo java -jar ~/cxflow.jar --spring.config.location=./application.yml \
               --scan \
               --cx-team="${CX_TEAM}" \
               --base-url="${CX_SERVER}" \
