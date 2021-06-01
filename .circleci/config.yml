@@ -25,7 +25,7 @@ jobs:
           command: |
             #        java -jar ~/cxflow.jar --spring.config.location=./application.yml --scan --f=./src/main --cx-team="\Cx NA Team\MiguelGonzalez" --cx-project="Fun_New_Project" --app=10081 --cxflow.bugTracker="NONE"
 
-            java -jar /app/cx-flow.jar --spring.config.location=./application.yml \
+            java -jar ~/cxflow.jar --spring.config.location=./application.yml \
               --scan \
               --cx-team="$CX_TEAM" \
               --base-url="$CX_SERVER" \
