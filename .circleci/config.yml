@@ -1,20 +1,21 @@
-orbs:
-  cxflow: checkmarx-ts/cxflow@1.0.4
-version: 2.1
-workflows:
-  sast-scan:
-    jobs:
-      - cxflow/scan:
-           filters:
-            branches:
-              only:
-                - master
-          project: CxProject
-          scanners: 'sast'
-          team: /CxServer/SP/Checkmarx
-          version: 9.3
+jobs:
+  orbs:
+    cxflow: checkmarx-ts/cxflow@1.0.4
+  version: 2.1
+  workflows:
+   sast-scan:
+      jobs:
+        - cxflow/scan:
+             filters:
+              branches:
+                only:
+                  - master
+            project: CxProject
+            scanners: 'sast'
+            team: /CxServer/SP/Checkmarx
+            version: 9.3
   version: 2
-#jobs:
+
 #  build:
 #    docker:
 #      - image: circleci/openjdk:8u222-stretch
