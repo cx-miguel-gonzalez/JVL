@@ -1,51 +1,35 @@
+version: 2
 jobs:
-  orbs:
-    cxflow: checkmarx-ts/cxflow@1.0.4
-  version: 2.1
-  workflows:
-   sast-scan:
-      jobs:
-        - cxflow/scan:
-             filters:
-              branches:
-                only:
-                  - master
-            project: CxProject
-            scanners: 'sast'
-            team: /CxServer/SP/Checkmarx
-            version: 9.3
-  version: 2
+  build:
+    docker:
+      - image: circleci/openjdk:8u222-stretch
+      #- image: docker.io/checkmarx/cx-flow
+    steps:
+      - checkout
+      
+      - run:
+          name: Install CxFlow Plugin
+          command: |
+            wget -O ~/cxflow.jar https://github.com/checkmarx-ltd/cx-flow/releases/download/1.6.15/cx-flow-1.6.15.jar
+            chmod +rwx ~/cxflow.jar
 
-#  build:
-#    docker:
-#      - image: circleci/openjdk:8u222-stretch
-#      #- image: docker.io/checkmarx/cx-flow
-#    steps:
-#      - checkout
-#      
-#      - run:
-#          name: Install CxFlow Plugin
-#          command: |
-#            wget -O ~/cxflow.jar https://github.com/checkmarx-ltd/cx-flow/releases/download/1.6.15/cx-flow-1.6.15.jar
-#            chmod +rwx ~/cxflow.jar
-#
-#      - run:
-#          name: Execute CxSAST Scan using CxFlow
-#          command: | 
-#            echo java -jar ~/cxflow.jar --spring.config.location=./application.yml \
-#              --scan \
-#              --cx-team="${CX_TEAM}" \
-#              --base-url="${CX_SERVER}" \
-#              --cx-project="${CX_PROJECT}-$CIRCLE_BRANCH" \
-#              --app="$CIRCLE_BRANCH" \
-#              --cxflow.bugTracker="none" \
-#              --f=./src/main
-#
-#            java -jar ~/cxflow.jar --spring.config.location=./application.yml \
-#              --scan \
-#              --cx-team="$CX_TEAM" \
-#              --base-url="$CX_SERVER" \
-#              --cx-project="$CX_PROJECT-$CIRCLE_BRANCH" \
-#              --app="$CIRCLE_BRANCH" \
-#              --cxflow.bugTracker="none" \
-#              --f=./src/main
+      - run:
+          name: Execute CxSAST Scan using CxFlow
+          command: | 
+            echo java -jar ~/cxflow.jar --spring.config.location=./application.yml \
+              --scan \
+              --cx-team="${CX_TEAM}" \
+              --base-url="${CX_SERVER}" \
+              --cx-project="${CX_PROJECT}-$CIRCLE_BRANCH" \
+              --app="$CIRCLE_BRANCH" \
+              --cxflow.bugTracker="none" \
+              --f=./src/main
+
+            java -jar ~/cxflow.jar --spring.config.location=./application.yml \
+              --scan \
+              --cx-team="$CX_TEAM" \
+              --base-url="$CX_SERVER" \
+              --cx-project="$CX_PROJECT-$CIRCLE_BRANCH" \
+              --app="$CIRCLE_BRANCH" \
+              --cxflow.bugTracker="none" \
+              --f=./src/main
