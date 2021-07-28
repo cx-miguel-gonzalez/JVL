@@ -4,8 +4,25 @@ jobs:
     steps:
       - checkout
       - cxflow/scan:
-          team: '/CxServer'
+          ast-apiUrl: 'http://cx-ast-testing.dev.checkmarx-ts.com'
+          ast-incremental: false
+          ast-preset: Checkmarx Default
+          ast-webAppUrl: 'http://cx-ast-testing.dev.checkmarx-ts.com'
+          cxgo-base-url: 'https://api.checkmarx.net'
+          cxgo-configuration: Default Configuration
+          cxgo-multi-tenant: true
+          cxgo-portal-url: 'https://cloud.checkmarx.net'
+          cxgo-scan-preset: '1,2,3,4,5,9'
+          preset: Checkmarx Express
+          report-file: checkmarx.json
+          sca-accessControlUrl: 'https://platform.checkmarx.net'
+          sca-apiUrl: 'https://api.scacheckmarx.com'
+          sca-appUrl: 'https://sca.scacheckmarx.com'
+          scanners: 'sast'
+          team: /CxServer
           version: '9.0'
+      - store_artifacts:
+          path: checkmarx.json
 orbs:
   cxflow: checkmarx-ts/cxflow@1.0.4
 version: 2.1
