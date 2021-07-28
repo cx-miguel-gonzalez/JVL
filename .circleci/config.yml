@@ -5,15 +5,12 @@ jobs:
       - checkout
       - cxflow/scan:
           team: /CxServer
-          version: '9.3'
 orbs:
   cxflow: checkmarx-ts/cxflow@1.0.4
 version: 2.1
 workflows:
-  sast-scan:
-    jobs:
-      - cx-scan:
-          filters:
-            branches:
-              only: master
-           version: '9.3'
+    example-workflow:
+      jobs:
+        - cxflow/scan:
+            version: '9.3' 
+            incremental: false 
