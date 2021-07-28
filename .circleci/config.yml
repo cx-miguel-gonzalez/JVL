@@ -25,11 +25,20 @@ jobs:
               --cxflow.bugTracker="none" \
               --f=./src/main
 
-            java -jar ~/cxflow.jar --spring.config.location=./application.yml \
-              --scan \
-              --cx-team="$CX_TEAM" \
-              --base-url="$CX_SERVER" \
-              --cx-project="$CX_PROJECT-$CIRCLE_BRANCH" \
-              --app="$CIRCLE_BRANCH" \
-              --cxflow.bugTracker="none" \
-              --f=./src/main
+orbs:
+  cxflow: checkmarx-ts/cxflow@1.0.4
+version: 2.1
+workflows:
+  sast-scan:
+    jobs:
+      - cxflow/scan:
+          filters:
+            branches:
+              only:
+                - master
+          project: CxProject
+          report-file: vulns.json
+          scanners: 'sast'
+          team: /CxServer
+          version: 9.3
+  version: 2
