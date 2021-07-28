@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 jobs:
   build:
     docker:
@@ -27,18 +27,13 @@ jobs:
 
 orbs:
   cxflow: checkmarx-ts/cxflow@1.0.4
-version: 2.1
+
 workflows:
   sast-scan:
     jobs:
-      - cxflow/scan:
+      - cx-scan:
           filters:
             branches:
-              only:
-                - master
-          project: CxProject
-          report-file: vulns.json
-          scanners: 'sast'
-          team: /CxServer
-          version: 9.3
+              only: master
+          version: '9.3'
   version: 2
