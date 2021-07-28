@@ -16,3 +16,4 @@ workflows:
           filters:
             branches:
               only: master
+           version: '9.3'
