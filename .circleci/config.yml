@@ -5,7 +5,7 @@ jobs:
       - checkout
       - cxflow/scan:
           scanners: 'sast'
-          team: \CxServer\SP\Checkmarx
+          team: \CxServer
           version: '9.0'
 orbs:
   cxflow: checkmarx-ts/cxflow@1.0.4
