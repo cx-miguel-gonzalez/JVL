@@ -5,6 +5,7 @@ jobs:
       - checkout
       - cxflow/scan:
           team: /CxServer
+          version: '9.3' 
 orbs:
   cxflow: checkmarx-ts/cxflow@1.0.4
 version: 2.1
@@ -12,5 +13,4 @@ workflows:
     cx-scan:
       jobs:
         - cxflow/scan:
-            version: '9.3' 
             incremental: false 
