@@ -4,7 +4,6 @@ jobs:
     steps:
       - checkout
       - cxflow/scan:
-          scanners: 'sast'
           team: \CxServer
           version: '9.0'
 orbs:
