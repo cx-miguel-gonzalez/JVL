@@ -4,7 +4,7 @@ jobs:
     steps:
       - checkout
       - cxflow/scan:
-          team: CxServer
+          team: '/CxServer'
           version: '9.0'
 orbs:
   cxflow: checkmarx-ts/cxflow@1.0.4
