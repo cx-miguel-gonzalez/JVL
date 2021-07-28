@@ -9,7 +9,7 @@ orbs:
   cxflow: checkmarx-ts/cxflow@1.0.4
 version: 2.1
 workflows:
-    example-workflow:
+    cx-scan:
       jobs:
         - cxflow/scan:
             version: '9.3' 
