@@ -35,4 +35,4 @@ jobs:
         # Secret key for AST portal authentication
         cx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
         # Additional parameters for AST scan
-        additional_params: --scan-types sast,sca,IaC # optional, default is 
+        additional_params: --scan-types sast,sca,iac-security # optional, default is 
